@@ -1,0 +1,7 @@
+.dropzone {
+    position: relative;
+    border: 2px lightblue dotted;
+    top: 100px;
+    width: 200px;
+    height: 100px;
+}
