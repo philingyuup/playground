@@ -1,12 +1,14 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode } from 'react'
 import styles from './dragndrop.module.css'
 
-interface Props {
+interface dragndropProps {
     children?: ReactNode;
+    setDropItem: Function;
+    dropItem: File | null;
 }
 
-export const Dragndrop: React.FC<Props> = ( { children } ) => {
-    const [ dropItem, setDropItem ] = useState<File | null>(null)
+export const Dragndrop: React.FC<dragndropProps> = ( { children, setDropItem, dropItem } ) => {
+    
 
     const dropHandler = (e: React.DragEvent) => {
         e.preventDefault()
@@ -14,15 +16,14 @@ export const Dragndrop: React.FC<Props> = ( { children } ) => {
             for (let i = 0; i < e.dataTransfer.items.length; i++) {
                 const file = e.dataTransfer.items[i].getAsFile();
                 setDropItem(file)
-                console.log('dropItem: ' + dropItem)
                 console.log(`file: ${file}`)
+                console.log(`dropItem: ${dropItem}`)
             }
         } else {
             for (let i = 0; i < e.dataTransfer.files.length; i++) {
                 console.log(e.dataTransfer.files[i])
             }
         }
-        console.log('dropItem: ' + dropItem)
     }
 
     const onDragOverHandler = (e: React.DragEvent) => {

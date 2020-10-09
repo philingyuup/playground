@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Dragndrop } from './Components/dragndrop/dragndrop'
+import { DropzoneWrapper } from './Components/pdfviewer/dropzonewrapper/dropzonewrapper'
 
 function App() {
   return (
     <div className="App">
-      <main style={{'display': 'flex', 'justifyContent': 'center', 'position': 'relative'}}>
-        <Dragndrop>
-          <p> Drop Here! </p>
-        </Dragndrop>
+      <main style={{'position':'relative'}}>
+        <DropzoneWrapper />
       </main>
     </div>
   );
